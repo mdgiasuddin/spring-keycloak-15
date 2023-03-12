@@ -12,18 +12,18 @@ import java.util.Map;
 @RequestMapping("/api/auth/greeting")
 public class HomeController {
 
-    @PreAuthorize("hasRole('user')")
-    @GetMapping("/user")
+    @PreAuthorize("hasRole('STUDENT')")
+    @GetMapping("/student")
     public Map<String, String> greetUser() {
         Map<String, String> response = new HashMap<>();
 
-        response.put("to", "User");
-        response.put("message", "Welcome User!");
+        response.put("to", "Student");
+        response.put("message", "Welcome Student!");
 
         return response;
     }
 
-    @PreAuthorize("hasRole('admin')")
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/admin")
     public Map<String, String> greetAdmin() {
         Map<String, String> response = new HashMap<>();
